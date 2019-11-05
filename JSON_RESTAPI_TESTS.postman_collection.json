@@ -1,0 +1,698 @@
+{
+	"info": {
+		"_postman_id": "fecd71b5-2817-4b0e-8233-0c3c75d03415",
+		"name": "JSON_RESTAPI_TESTS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add 1st task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "843ae365-28cb-46d3-9e6e-ab0bc287b325",
+						"exec": [
+							"pm.test(\"status is 201\", () => pm.response.to.have.status(201) );\r",
+							"pm.test(\"successful added\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"Task 1st Task has been added\"));\r",
+							"  "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_name\": \"1st Task\",\n\t\"task_priority\": 25\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2nd Task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9c3d91e-674a-4921-82fe-cdc9299e7c5a",
+						"exec": [
+							"pm.test(\"status is 201\", () => pm.response.to.have.status(201) );\r",
+							"pm.test(\"successful added\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"Task 2st Task has been added\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_name\": \"2st Task\",\n\t\"task_priority\": 14\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d1f8ca65-141c-4504-9be8-b60c4de39cef",
+						"exec": [
+							"pm.test(\"status is 201\", () => pm.response.to.have.status(201) );\r",
+							"pm.test(\"successful added\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"Task Next Task has been added\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_name\": \"Next Task\",\n\t\"task_priority\": 34\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4th Task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "307500a2-1c60-49c9-a74f-1eaf6ffb00a5",
+						"exec": [
+							"pm.test(\"status is 201\", () => pm.response.to.have.status(201) );\r",
+							"pm.test(\"successful added\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"Task 4th Task has been added\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_name\": \"4th Task\",\n\t\"task_priority\": 8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Top priority task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be136276-b504-4909-a2de-6087cd003eb6",
+						"exec": [
+							"pm.test(\"status is 200\", () => pm.response.to.have.status(200) );\r",
+							"pm.test(\"Show task #3\", () => \r",
+							"  pm.expect(pm.response.json().task_priority).to.equal(34));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Top priority task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bb16997e-a3b0-43a9-86cb-fc9b36304f30",
+						"exec": [
+							"pm.test(\"status is 202\", () => pm.response.to.have.status(202) );\r",
+							"pm.test(\"successful deleted\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"Task id 3 has been deleted\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get new Top priority task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a415af3-6bcd-476f-84b7-85c994792d31",
+						"exec": [
+							"pm.test(\"status is 200\", () => pm.response.to.have.status(200) );\r",
+							"pm.test(\"Show task #1\", () => \r",
+							"  pm.expect(pm.response.json().task_priority).to.equal(25));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try to add task with 99999 priority",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b499b796-384c-4e77-9b56-429b5666e33e",
+						"exec": [
+							"pm.test(\"status is 501\", () => pm.response.to.have.status(501) );\r",
+							"pm.test(\"successful added\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"data.task_priority should be <= 100\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_name\": \"Over 100 priority\",\n\t\"task_priority\": 99999\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try to get previous task with  99999 priority",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d0beb986-703d-42b5-b43c-4279b47013df",
+						"exec": [
+							"pm.test(\"status is 200\", () => pm.response.to.have.status(200) );\r",
+							"pm.test(\"Dont show previous added task\", () => \r",
+							"  pm.expect(pm.response.json().task_priority).to.be.not.equal(99999));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create task with long name (> 255)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "52ea3f11-5df9-430c-84f5-197cf17719fe",
+						"exec": [
+							"pm.test(\"status is 501\", () => pm.response.to.have.status(501) );\r",
+							"pm.test(\"successful added\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"data.task_name should NOT be longer than 255 characters\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_name\": \"JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ\",\n\t\"task_priority\": 97\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try to get previous task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "97ac85cc-ea45-456f-9fa7-b561d4442f0c",
+						"exec": [
+							"pm.test(\"status is 200\", () => pm.response.to.have.status(200) );\r",
+							"pm.test(\"Check that last task was not added\", () => \r",
+							"  pm.expect(pm.response.json().task_name.length).to.be.not.equal(97));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete 1st task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fbe29b6-a7d3-4e68-be40-df071199fa68",
+						"exec": [
+							"pm.test(\"status is 202\", () => pm.response.to.have.status(202) );\r",
+							"pm.test(\"successful deleted\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"Task id 1 has been deleted\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete 2nd Task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f800d33c-198f-4202-9d74-0d94866e53c5",
+						"exec": [
+							"pm.test(\"status is 202\", () => pm.response.to.have.status(202) );\r",
+							"pm.test(\"successful deleted\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"Task id 2 has been deleted\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete 4th Task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "244fd8c9-56f8-4433-963d-f201490c47ce",
+						"exec": [
+							"pm.test(\"status is 202\", () => pm.response.to.have.status(202) );\r",
+							"pm.test(\"successful deleted\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"Task id 4 has been deleted\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_id\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try to add task with negative value priority",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "14e20aa0-d201-40a3-8712-c22511b9fa25",
+						"exec": [
+							"pm.test(\"status is 501\", () => pm.response.to.have.status(501) );\r",
+							"pm.test(\"successful added\", () => \r",
+							"  pm.expect(pm.response.json().message).to.equal(\"data.task_priority should be >= 0\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task_name\": \"Negative value priority task\",\n\t\"task_priority\": -20\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

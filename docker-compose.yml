@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  app:
+    container_name: app_restapi_tasks
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+        - "8080:3000"
+    links:
+        - db
+    depends_on:
+        - db
+    restart: always
+
+  db:
+    container_name: mysql_restapi_tasks
+    image: mysql:5
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: database
+    ports:
+        - "3306:3306"
+
